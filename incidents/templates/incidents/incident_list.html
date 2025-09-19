@@ -1,0 +1,13 @@
+<h2>Safety Incidents</h2>
+<a href="{% url 'incident_create' %}">Report New Incident</a> |
+<a href="{% url 'logout' %}">Logout</a>
+<ul>
+  {% for incident in incidents %}
+    <li>
+      <b>{{ incident.title }}</b> ({{ incident.location }}) - Reported by {{ incident.reported_by }}
+      <br>
+      <a href="{% url 'incident_update' incident.pk %}">Edit</a> |
+      <a href="{% url 'incident_delete' incident.pk %}">Delete</a>
+    </li>
+  {% endfor %}
+</ul>
